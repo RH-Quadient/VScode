@@ -1,0 +1,23 @@
+using System;
+using CsvHelper;
+using System.IO;
+using System.Globalization;
+using System.Linq;
+
+namespace FinalParser
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            using (var streamReader = new StreamReader(@"dddd.csv"))
+            {
+                using (var csvReader = new CsvReader( streamReader,CultureInfo.InvariantCulture))
+                {
+                    var records = csvReader.GetRecords<dynamic>().ToList();
+                }
+            }
+
+        }
+    }
+}
